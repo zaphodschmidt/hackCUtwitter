@@ -1,0 +1,24 @@
+import React from 'react';
+import './Grid.css';
+
+function Grid() {
+  // Define number of rows and columns
+  const rows = 3;
+  const cols = 3;
+
+  // Generate cells dynamically
+  const cells = [];
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      cells.push(<div className="cell"></div>);
+    }
+  }
+
+  return (
+    <div className="grid">
+      {cells}
+    </div>
+  );
+}
+
+export default Grid;
