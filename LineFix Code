@@ -1,0 +1,14 @@
+function MyComponent() {
+  const circleCenter = {x: 50, y: 50};
+  const circleRadius = 30;
+  const lineEndPoint = {x: 100, y: 100};
+  const lineLength = Math.sqrt(Math.pow(lineEndPoint.x - circleCenter.x, 2) + Math.pow(lineEndPoint.y - circleCenter.y, 2));
+  const lineAngle = Math.atan2(lineEndPoint.y - circleCenter.y, lineEndPoint.x - circleCenter.x);
+  
+  return (
+    <svg width="200" height="200">
+      <circle cx={circleCenter.x} cy={circleCenter.y} r={circleRadius} fill="red" />
+      <line x1={circleCenter.x + circleRadius * Math.cos(lineAngle)} y1={circleCenter.y + circleRadius * Math.sin(lineAngle)} x2={lineEndPoint.x} y2={lineEndPoint.y} stroke="black" strokeWidth="2" />
+    </svg>
+  );
+}
