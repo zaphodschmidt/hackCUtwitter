@@ -63,8 +63,8 @@ function App() {
       linesArray.push(<line
         x1={rootCenter.x + rootRadius * Math.cos(currLineAngle)}
         y1={rootCenter.y + rootRadius * Math.sin(currLineAngle)}
-        x2={currEndPoint.x - circleRadius2 * Math.sin(currLineAngle)}
-        y2={currEndPoint.y - circleRadius2 * Math.sin(currLineAngle)}
+        x2={currEndPoint.x - circleRadius2 * Math.sin(0)}
+        y2={currEndPoint.y - circleRadius2 * Math.sin(0)}
         stroke="black"
         strokeWidth="2"
       />);
