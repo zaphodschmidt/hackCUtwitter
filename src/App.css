@@ -13,22 +13,20 @@
   }
 }
 
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
 
 .App-link {
   color: #61dafb;
 }
-
-.circle {
-  /* display: flex; */
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: red;
-}
-circle:focus {
-  outline: 2px solid;
-}
-
 
 @keyframes App-logo-spin {
   from {
@@ -38,4 +36,66 @@ circle:focus {
     transform: rotate(360deg);
   }
 }
+.circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: red;
+}
 
+/* import logo from './logo.svg';
+import './App.css';
+import React, { useState, useEffect } from 'react';
+
+var call = true;
+function App() {
+  const totalWidth = window.screen.width;
+  const totalHeight = window.screen.height;
+  const iteractions = 7;
+
+  console.log(totalHeight)
+
+
+  const InitialCircleCenter = { x: totalWidth / 2, y: totalHeight / 2 };
+  const circleCenter = [];
+  const theta = [];
+  const L = 60;
+
+
+  const InitialCircleRadius = 20;
+  const circleRadius2 = 10;
+  const [fucked, setFucked] = useState([<div key="fug" style={{ left: `${InitialCircleCenter.x}px`, width: `${2 * InitialCircleRadius}px`, top: `${InitialCircleCenter.y}px`, height: `${2 * InitialCircleRadius}px` }} className="circle"></div>])
+
+
+  // const lineEndPoint1 = {x: circleCenter1.x, y: circleCenter1.y};
+  // const lineEndPoint2 = {x: circleCenter2.x, y: circleCenter2.y};
+
+  // const lineAngle1 = Math.atan2(lineEndPoint1.y - InitialCircleCenter.y, lineEndPoint1.x - InitialCircleCenter.x);
+  // const lineAngle2 = Math.atan2(lineEndPoint2.y - InitialCircleCenter.y, lineEndPoint2.x - InitialCircleCenter.x);
+
+  function processNewNodes(arr, root) {
+    const it = arr.length;
+    console.log(root);
+    console.log("ROOT IS ");
+    var rootCenter = { x: (root.props.style.left + root.props.style.width / 2), y: (root.props.style.top - root.props.style.height / 2) };
+    const updatedfucked = arr.map((circle, i) => {
+      const currCenter = { x: L * Math.cos(i * 2 * Math.PI / it) + rootCenter.x, y: L * Math.sin(i * 2 * Math.PI / it) + rootCenter.y };
+      var currRadius = 5;
+      console.log(circle.props.width)
+      circle.props.style.width = currRadius * 2;
+      circle.props.style.height = currRadius * 2;
+      circle.props.style.left = currCenter.x - circle.props.width / 2;
+      circle.props.style.top = currCenter.y + circle.props.height / 2;
+      return circle;
+    });
+    setFucked(prevCirc => {
+      return [...prevCirc, ...updatedfucked]
+    });
+    console.log("ASDASDASDASDASDASD");
+    console.log(fucked)
+    // const currEndPoint = {x: currCenter.x, y: currCenter.y};
+    // const currLineAngle = Math.atan2(currEndPoint.y - rootCenter.y, currEndPoint.x - rootCenter.x);
+
+    // linesArray.push(<line x1={root.cx + root.r * Math.cos(currLineAngle)} y1={root.cy + root.r * Math.sin(currLineAngle)} x2={currEndPoint.x - circleRadius2 * Math.sin(currLineAngle)} y2={currEndPoint.y - circleRadius2 * Math.sin(currLineAngle)} stroke="black" strokeWidth="2" />);
+  } */
