@@ -3,12 +3,11 @@ import axios from "axios";
 import * as React from "react";
 
 function App() {
-  // const axios = require("axios");
-  const [allCircles, setAllCircle] = React.useState([]);
+  const rootId = "1632076515587538944";
+  const [allCircles, setAllCircles] = React.useState([]);
   const bkey ="AAAAAAAAAAAAAAAAAAAAANGeZwEAAAAApoX9dvz8dwBZ5c3E2CZekQBWu1c%3DelLizFIyqg74Ko5Xi9ytArSqUK6S1SHFBVBRlzJu92mrXJmKnE";
   axios.defaults.headers.common["Authorization"] = `Bearer ${bkey}`;
   //quote_tweets
-  const rootId = "1632126184271249408";
 
   function tweetApiHandler(tweetId) {
     var tweetJson = { tweetObjects: [] };
@@ -50,16 +49,18 @@ function App() {
       const circleDivs = tweetJson.tweetObjects.map((info) => {
         if(info.tweet_type==="retweet"){
           return (
-            <button className="circle">{info.user_name}</button>
+            <button  className="circle" >{info.user_name}</button>
           )
         }
         else{
           return(
-            <button className="circle" onClick={()=> tweetApiHandler(info.tweet_id)}>{info.user_name}</button>
+            <button className="circle" id={info.tweet_id} onClick={()=> {document.getElementById(info.tweet_id).style.pointerEvents = 'none'; tweetApiHandler(info.tweet_id);}}>{info.user_name}</button>
           )
         }
       });
-      setAllCircle([...allCircles, circleDivs]);
+      setAllCircles(prevAllCircles => {
+        return [...prevAllCircles, ...circleDivs];
+      });
     })
     .catch(function (error) {
       console.log(error);
@@ -67,7 +68,7 @@ function App() {
   }
   return (
     <div className="App">
-        <button className="circle" onClick={()=> tweetApiHandler(rootId)}>ROOT</button>
+        <button className="circle"key="root" id = {rootId} onClick={()=> {document.getElementById(rootId).style.pointerEvents = 'none'; tweetApiHandler(rootId);}}>ROOT</button>
         {allCircles}
     </div>
   );
